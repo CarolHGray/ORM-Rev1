@@ -1,28 +1,23 @@
-const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { Category } = require('../models');
 
-// The `/api/tags` endpoint
+const categoryData = [
+  {
+    category_name: 'Shirts',
+  },
+  {
+    category_name: 'Shorts',
+  },
+  {
+    category_name: 'Music',
+  },
+  {
+    category_name: 'Hats',
+  },
+  {
+    category_name: 'Shoes',
+  },
+];
 
-router.get('/', (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
-});
+const seedCategories = () => Category.bulkCreate(categoryData);
 
-router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
-});
-
-router.post('/', (req, res) => {
-  // create a new tag
-});
-
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
-});
-
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
-});
-
-module.exports = router;
+module.exports = seedCategories;
